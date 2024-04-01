@@ -15,6 +15,7 @@
     self,
     nixpkgs,
     nixpkgs-unstable,
+    home-manager,
     ...
   } @ inputs: {
     nixosConfigurations.luckynix = nixpkgs.lib.nixosSystem rec {
