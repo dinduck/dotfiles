@@ -3,7 +3,17 @@
   lib,
   config,
   ...
-}: {
+}: 
+let cfg = config.modules.programs.zsh;
+{
+options.modules.programs.zsh = {
+enable = lib.mkOption {
+default = false;
+type = lib.types.bool;
+description = "my zsh config";
+};
+};
+config = lib.mkIf cfg.enable {
   programs.zsh = {
     enable = true;
     shellAliases = {
@@ -27,5 +37,6 @@
         {name = "zap-zsh/exa";}
       ];
     };
+  };
   };
 }

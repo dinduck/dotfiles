@@ -18,6 +18,7 @@
       aria2.enable = false;
       office.libreoffice.enable = true;
       yazi.enable = true;
+      zsh.enable = true;
     };
     themes = {
       nordic.enable = true;

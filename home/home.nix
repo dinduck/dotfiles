@@ -16,7 +16,7 @@
 
     # archives
     zip
-    busybox
+    xz
     unzip
     p7zip
 
