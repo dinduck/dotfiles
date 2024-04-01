@@ -14,6 +14,9 @@
     neofetch
     yazi
 
+    # browser
+    google-chrome
+
     # archives
     zip
     xz
