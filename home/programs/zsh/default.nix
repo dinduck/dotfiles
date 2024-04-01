@@ -5,6 +5,7 @@
   ...
 }: 
 let cfg = config.modules.programs.zsh;
+in
 {
 options.modules.programs.zsh = {
 enable = lib.mkOption {
