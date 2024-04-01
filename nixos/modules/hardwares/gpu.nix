@@ -5,10 +5,10 @@
   ...
 }: let
   pkgs = pkgs-unstable;
-  cfg = config.modules.hardware.gpu;
+  cfg = config.modules.hardwares.gpu;
 in
   with lib; {
-    options.modules.hardware.gpu = {
+    options.modules.hardwares.gpu = {
       enable = mkOption {
         default = false;
         type = types.bool;
