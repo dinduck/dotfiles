@@ -1,12 +1,13 @@
 {
   inputs,
-  pkgs,
+  pkgs-unstable,
   lib,
   config,
   ...
 }:
 with lib; let
   cfg = config.modules.programs.hyprland;
+  pkgs = pkgs-unstable; # where you can replace
 in {
   options.modules.programs.hyprland = {enable = mkEnableOption "hyprland";};
   config = mkIf cfg.enable {
@@ -25,6 +26,7 @@ in {
     ];
     wayland.windowManager.hyprland = {
       enable = true;
+      package = pkgs.hyprland;
       systemd.enable = true;
       xwayland.enable = true;
       settings = {
