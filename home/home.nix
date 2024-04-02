@@ -1,61 +1,71 @@
 {
   config,
   pkgs,
+  nixpkgs-unstable,
   nixvim,
   ...
-}: {
+}: let
+  pkgs-unstable = import nixpkgs-unstable {
+    system = "x86_64-linux";
+    config.allowUnfree = true;
+  };
+in {
   imports = [
     ./user.nix
   ];
   home.username = "dingduck";
   home.homeDirectory = "/home/dingduck";
 
-  home.packages = with pkgs; [
-    neofetch
-    yazi
+  home.packages = with pkgs;
+    [
+      neofetch
+      yazi
 
-    # browser
-    google-chrome
+      # browser
+      google-chrome
 
-    # archives
-    zip
-    xz
-    unzip
-    p7zip
+      # archives
+      zip
+      xz
+      unzip
+      p7zip
 
-    # utils
-    ripgrep # recursively searches directories for a regex pattern
-    jq # A lightweight and flexible command-line JSON processor
-    eza # A modern replacement for ‘ls’
-    networkmanagerapplet
-    pavucontrol
+      # utils
+      ripgrep # recursively searches directories for a regex pattern
+      jq # A lightweight and flexible command-line JSON processor
+      eza # A modern replacement for ‘ls’
+      networkmanagerapplet
+      pavucontrol
 
-    # nixvim
-    nixvim.packages.${pkgs.system}.default
+      # nixvim
+      nixvim.packages.${pkgs.system}.default
 
-    btop # replacement of htop/nmon
-    iotop # io monitoring
-    iftop # network monitoring
+      btop # replacement of htop/nmon
+      iotop # io monitoring
+      iftop # network monitoring
 
-    # fonts
-    wqy_zenhei
-    jetbrains-mono
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-    liberation_ttf
-    fira-code
-    fira-code-symbols
-    iosevka
-    # nerd c
-    powerline-fonts
-    material-design-icons
-    martian-mono
-    font-awesome
-    weather-icons
-    source-code-pro
-    fira-code-nerdfont
-  ];
+      # fonts
+      wqy_zenhei
+      jetbrains-mono
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
+      liberation_ttf
+      fira-code
+      fira-code-symbols
+      iosevka
+      # nerd c
+      powerline-fonts
+      material-design-icons
+      martian-mono
+      font-awesome
+      weather-icons
+      source-code-pro
+      fira-code-nerdfont
+    ]
+    ++ [
+      pkgs-unstable.qq
+    ];
 
   # git 相关配置
   programs.git = {
