@@ -1,13 +1,13 @@
 {
-  inputs,
-  pkgs-unstable,
+  nixpkgs-unstable,
   lib,
+  pkgs,
   config,
   ...
 }:
 with lib; let
   cfg = config.modules.programs.hyprland;
-  pkgs = pkgs-unstable; # where you can replace
+  pkgs-unstable = import nixpkgs-unstable {system = "x86_64-linux";}; # where you can replace
 in {
   options.modules.programs.hyprland = {enable = mkEnableOption "hyprland";};
   config = mkIf cfg.enable {
@@ -17,7 +17,6 @@ in {
       wlsunset
       wlogout
       wl-clipboard
-      hyprland
       xfce.thunar
       alacritty
       slurp
@@ -26,7 +25,7 @@ in {
     ];
     wayland.windowManager.hyprland = {
       enable = true;
-      package = pkgs.hyprland;
+      package = pkgs-unstable.hyprland;
       systemd.enable = true;
       xwayland.enable = true;
       settings = {
