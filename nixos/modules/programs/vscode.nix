@@ -25,6 +25,7 @@ in {
               ms-vscode.cmake-tools
               vadimcn.vscode-lldb
               jnoortheen.nix-ide
+              rust-lang.rust-analyzer
             ]
             ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
               {
