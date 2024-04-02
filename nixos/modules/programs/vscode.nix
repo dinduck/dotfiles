@@ -25,7 +25,11 @@ in {
               ms-vscode.cmake-tools
               vadimcn.vscode-lldb
               jnoortheen.nix-ide
+              # rust
               rust-lang.rust-analyzer
+              tamasfe.even-better-toml
+              usernamehw.errorlens
+              serayuzgur.crates
             ]
             ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
               {
