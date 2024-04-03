@@ -17,5 +17,6 @@ in {
   config = lib.mkIf cfg.enable {
     boot.kernelPackages = pkgs.linuxPackages_zen; # zen 内核值得信赖
     services.gvfs.enable = true; # 主要给thunar提供服务
+    boot.supportedFilesystems = ["ntfs"]; # ntfs 支持
   };
 }
