@@ -1,3 +1,6 @@
 {...}: {
-  imports = [./vscode.nix];
+  imports = [
+    ./steam.nix
+    ./vscode.nix
+  ];
 }

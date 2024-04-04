@@ -7,6 +7,7 @@
     boot.enable = true;
     programs = {
       vscode.enable = true;
+      steam.enable = true;
     };
   };
 }
