@@ -24,7 +24,7 @@
       nordic.enable = true;
     };
     dconf = {
-      virt-manager.enable = false;
+      virt-manager.enable = true;
     };
   };
 }
