@@ -23,6 +23,7 @@ in {
 
       # browser
       google-chrome
+      vlc
 
       # archives
       zip

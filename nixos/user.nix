@@ -9,6 +9,7 @@
       vscode.enable = true;
       steam.enable = true;
       virt-manager.enable = true;
+      obs-studio.enable = true;
     };
   };
 }
