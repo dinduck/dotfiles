@@ -65,6 +65,7 @@ in {
     ]
     ++ [
       pkgs-unstable.qq
+      pkgs-unstable.obsidian
     ];
 
   # git 相关配置
