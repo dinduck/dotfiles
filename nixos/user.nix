@@ -3,6 +3,7 @@
   modules = {
     hardwares = {
       gpu.enable = true;
+      bluetooth.enable = true;
     };
     boot.enable = true;
     programs = {
