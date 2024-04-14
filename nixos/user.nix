@@ -11,5 +11,8 @@
       virt-manager.enable = true;
       obs-studio.enable = true;
     };
+    services = {
+      udev.enable = true;
+    };
   };
 }
