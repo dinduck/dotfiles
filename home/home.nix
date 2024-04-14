@@ -3,6 +3,7 @@
   pkgs,
   nixpkgs-unstable,
   nixvim,
+  luckyling_npkgs,
   ...
 }: let
   pkgs-unstable = import nixpkgs-unstable {
@@ -24,7 +25,10 @@ in {
       # browser
       google-chrome
       vlc
-
+      (luckyling_npkgs.packages."${pkgs.system}".picgo)
+      element-desktop
+      slack
+      
       # archives
       zip
       xz

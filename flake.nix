@@ -8,7 +8,10 @@
     home-manager = {
       url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
-      };
+    };
+    luckyling_npkgs = {
+      url = "github:dinduck/luckyling_npkgs";
+    };
   };
 
   outputs = {
@@ -16,6 +19,7 @@
     nixpkgs,
     nixpkgs-unstable,
     home-manager,
+    luckyling_npkgs,
     ...
   } @ inputs: {
     nixosConfigurations.luckynix = nixpkgs.lib.nixosSystem rec {
@@ -28,14 +32,13 @@
       };
       modules = [
         ./nixos/configuration.nix
-	        home-manager.nixosModules.home-manager
+        home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.dingduck = import ./home/home.nix;
           home-manager.extraSpecialArgs = inputs;
         }
-
       ];
     };
   };

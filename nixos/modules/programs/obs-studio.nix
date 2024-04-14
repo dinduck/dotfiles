@@ -1,10 +1,9 @@
 {
-  pkgs-unstable,
+  pkgs,
   lib,
   config,
   ...
 }: let
-  pkgs = pkgs-unstable;
   cfg = config.modules.programs.obs-studio;
 in {
   options.modules.programs.obs-studio = {
