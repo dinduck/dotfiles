@@ -22,6 +22,7 @@ in {
       slurp
       grim
       swappy
+      blueman
     ];
     wayland.windowManager.hyprland = {
       enable = true;
@@ -180,6 +181,7 @@ in {
         exec-once = [
           "LANG=C waybar"
           "fcitx5 -d"
+          "blueman-applet"
         ];
 
         # 窗口规则
