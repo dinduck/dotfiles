@@ -4,5 +4,6 @@
     ./vscode.nix
     ./virt-manager.nix
     ./obs-studio.nix
+    ./podman.nix
   ];
 }

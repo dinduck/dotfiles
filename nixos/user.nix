@@ -11,6 +11,7 @@
       steam.enable = true;
       virt-manager.enable = true;
       obs-studio.enable = true;
+      podman.enable = true;
     };
     services = {
       udev.enable = true;
