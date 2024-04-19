@@ -4,13 +4,10 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nixvim.url = "github:dinduck/nixvim";
+    nixvim.url = "github:luckycyang/nixvim";
     home-manager = {
       url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    luckyling_npkgs = {
-      url = "github:dinduck/luckyling_npkgs";
     };
   };
 
@@ -19,7 +16,6 @@
     nixpkgs,
     nixpkgs-unstable,
     home-manager,
-    luckyling_npkgs,
     ...
   } @ inputs: {
     nixosConfigurations.luckynix = nixpkgs.lib.nixosSystem rec {

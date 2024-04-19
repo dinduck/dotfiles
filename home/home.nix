@@ -25,10 +25,13 @@ in {
       # browser
       google-chrome
       vlc
-      (luckyling_npkgs.packages."${pkgs.system}".picgo)
       element-desktop
       slack
-      
+      (octaveFull.override {
+        enableQt = true;
+      })
+      yesplaymusic
+
       # archives
       zip
       xz
