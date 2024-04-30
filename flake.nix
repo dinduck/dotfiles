@@ -9,6 +9,7 @@
       url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nur.url = "github:nix-community/NUR";
   };
 
   outputs = {
@@ -16,6 +17,7 @@
     nixpkgs,
     nixpkgs-unstable,
     home-manager,
+    nur,
     ...
   } @ inputs: {
     nixosConfigurations.luckynix = nixpkgs.lib.nixosSystem rec {

@@ -31,6 +31,7 @@ in {
         enableQt = true;
       })
       yesplaymusic
+      jellyfin-media-player
 
       # archives
       zip
@@ -74,6 +75,9 @@ in {
     ++ [
       pkgs-unstable.qq
       pkgs-unstable.obsidian
+      pkgs-unstable.distrobox
+    ]
+    ++ [
     ];
 
   # git 相关配置
