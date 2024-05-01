@@ -20,6 +20,9 @@ in {
         ATTRS{idVendor}=="0d28", ATTRS{idProduct}=="0204", MODE="664", GROUP="plugdev", TAG+="uaccess"
         # WCH-Link
         ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="8010", MODE="664", GROUP="plugdev", TAG+="uaccess
+        # OpenMV
+        ATTRS{idVendor}=="1209", ATTRS{idProduct}=="abd1", MODE="664", GROUP="plugdev", TAG+="uaccess
+
       '';
     };
   };

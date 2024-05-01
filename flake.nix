@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     nixvim.url = "github:luckycyang/nixvim";
     home-manager = {
       url = "github:nix-community/home-manager/release-23.11";
@@ -16,6 +17,7 @@
     self,
     nixpkgs,
     nixpkgs-unstable,
+    nixpkgs-wayland,
     home-manager,
     nur,
     ...

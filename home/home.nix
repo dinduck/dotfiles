@@ -76,6 +76,7 @@ in {
       pkgs-unstable.qq
       pkgs-unstable.obsidian
       pkgs-unstable.distrobox
+      pkgs-unstable.telegram-desktop
     ]
     ++ [
     ];
