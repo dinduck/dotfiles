@@ -14,18 +14,7 @@ in {
     ./programs
     ./themes
     ./dconf
-    ./misc/xdg-portal.nix
   ];
-  config = {
-    xdg.portal = {
-      enable = true;
-      xdgOpenUsePortal = true;
-      extraPortals = with pkgs; [xdg-desktop-portal-hyprland xdg-desktop-portal];
-      config = {
-        common.default = "*";
-      };
-    };
-  };
   config.modules = {
     programs = {
       hyprland.enable = true;
