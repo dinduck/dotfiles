@@ -44,6 +44,48 @@ in {
                 version = "2.6.0";
                 sha256 = "sha256-4p3kizvEqqsMNJOhyKxJQ0rH3ePjstKLWb22BYy3yZk=";
               }
+              {
+                name = "slint";
+                publisher = "Slint";
+                version = "1.5.1";
+                sha256 = "sha256-9NbSqINJXuv4xIIdhwkqVP8CgVURj0I4roUwPJ6zte0=";
+              }
+              {
+                name = "cortex-debug";
+                publisher = "marus25";
+                version = "1.12.1";
+                sha256 = "sha256-ioK6gwtkaAcfxn11lqpwhrpILSfft/byeEqoEtJIfM0=";
+              }
+              {
+                name = "debug-tracker-vscode";
+                publisher = "mcu-debug";
+                version = "0.0.15";
+                sha256 = "sha256-2u4Moixrf94vDLBQzz57dToLbqzz7OenQL6G9BMCn3I=";
+              }
+              {
+                name = "memory-view";
+                publisher = "mcu-debug";
+                version = "0.0.25";
+                sha256 = "sha256-Tck3MYKHJloiXChY/GbFvpBgLBzu6yFfcBd6VTpdDkc=";
+              }
+              {
+                name = "rtos-views";
+                publisher = "mcu-debug";
+                version = "0.0.7";
+                sha256 = "sha256-VvMAYU7KiFxwLopUrOjvhBmA3ZKz4Zu8mywXZXCEHdo=";
+              }
+              {
+                name = "peripheral-viewer";
+                publisher = "mcu-debug";
+                version = "1.4.6";
+                sha256 = "sha256-flWBK+ugrbgy5pEDmGQeUzk1s2sCMQJRgrS3Ku1Oiag=";
+              }
+              {
+                name = "probe-rs-debugger";
+                publisher = "probe-rs";
+                version = "0.23.0";
+                sha256 = "sha256-PhEJ8TuzK4PYTnFVgv9rBec1EDViEVGS1ArUweNqS7Q=";
+              }
             ];
         }
       )

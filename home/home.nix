@@ -27,9 +27,7 @@ in {
       vlc
       element-desktop
       slack
-      (octaveFull.override {
-        enableQt = true;
-      })
+
       yesplaymusic
       jellyfin-media-player
 
@@ -72,15 +70,16 @@ in {
       source-code-pro
       fira-code-nerdfont
     ]
-    ++ [
-      pkgs-unstable.qq
-      pkgs-unstable.obsidian
-      pkgs-unstable.distrobox
-      pkgs-unstable.telegram-desktop
-    ]
-    ++ [
-    ];
-
+    ++ (with pkgs-unstable; [
+      qq
+      obsidian
+      distrobox
+      telegram-desktop
+      jetbrains-toolbox
+      (octaveFull.withPackages (ps: with ps; [optim]))
+      logisim-evolution
+      verilator
+    ]);
   # git 相关配置
   programs.git = {
     enable = true;

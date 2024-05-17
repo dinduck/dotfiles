@@ -25,6 +25,7 @@ in {
       office.libreoffice.enable = true;
       yazi.enable = true;
       zsh.enable = true;
+      starship.enable = true;
     };
     themes = {
       nordic.enable = true;

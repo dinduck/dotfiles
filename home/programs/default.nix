@@ -8,5 +8,6 @@
     ./office
     ./zsh
     ./yazi
+    ./starship
   ];
 }
