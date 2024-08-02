@@ -161,8 +161,15 @@ in {
         # CMSIS-DAP compatible adapters
         ATTRS{product}=="*CMSIS-DAP*", MODE="660", GROUP="plugdev", TAG+="uaccess"
         ATTRS{idVendor}=="0d28", ATTRS{idProduct}=="0204", MODE="660", GROUP="plugdev", TAG+="uaccess"
+        SUBSYSTEM=="tty", ATTRS{idVendor}=="0d28", ATTRS{idProduct}=="0204", MODE="0666"
         # WCH Link (CMSIS-DAP compatible adapter)
         ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="8011", MODE="660", GROUP="plugdev", TAG+="uaccess"
+
+        # K210
+        ATTRS{idVendor}=="0403", ATTRS{idProduct}=="0400", MODE="660", GROUP="plugdev", TAG+="uaccess"
+        SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", MODE="0666"
+        KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0660", GROUP="plugdev"
+        
 
         LABEL="probe_rs_rules_end"
       '';

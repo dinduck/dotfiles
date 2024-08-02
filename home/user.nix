@@ -26,6 +26,9 @@ in {
       yazi.enable = true;
       zsh.enable = true;
       starship.enable = true;
+      steam-run.enable = true;
+      helix.enable = true;
+      mako.enable = true;
     };
     themes = {
       nordic.enable = true;

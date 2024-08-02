@@ -1,9 +1,12 @@
-{ pkgs, lib, config, ... }:
-with lib;
-let
-cfg = config.modules.programs.alacritty;
-in
 {
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.modules.programs.alacritty;
+in {
   options.modules.programs.alacritty = {
     enable = mkEnableOption "Alacritty";
   };

@@ -9,5 +9,8 @@
     ./zsh
     ./yazi
     ./starship
+    ./steam-run
+    ./helix
+    ./mako
   ];
 }

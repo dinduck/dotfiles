@@ -16,20 +16,29 @@ in {
   };
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
+      direnv
       (
         vscode-with-extensions.override {
           vscodeExtensions = with vscode-extensions;
             [
+              ms-ceintl.vscode-language-pack-zh-hans
               ms-python.python
               llvm-vs-code-extensions.vscode-clangd
               ms-vscode.cmake-tools
               vadimcn.vscode-lldb
+              # NIX
+
+              mkhl.direnv
               jnoortheen.nix-ide
               # rust
               rust-lang.rust-analyzer
               tamasfe.even-better-toml
               usernamehw.errorlens
               serayuzgur.crates
+
+              # typst
+              # mgt19937.typst-preview
+              # nvarner.typst-lsp
             ]
             ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
               {
@@ -43,12 +52,6 @@ in {
                 publisher = "maziac";
                 version = "2.6.0";
                 sha256 = "sha256-4p3kizvEqqsMNJOhyKxJQ0rH3ePjstKLWb22BYy3yZk=";
-              }
-              {
-                name = "slint";
-                publisher = "Slint";
-                version = "1.5.1";
-                sha256 = "sha256-9NbSqINJXuv4xIIdhwkqVP8CgVURj0I4roUwPJ6zte0=";
               }
               {
                 name = "cortex-debug";
@@ -85,6 +88,12 @@ in {
                 publisher = "probe-rs";
                 version = "0.23.0";
                 sha256 = "sha256-PhEJ8TuzK4PYTnFVgv9rBec1EDViEVGS1ArUweNqS7Q=";
+              }
+              {
+                name = "wavetrace";
+                publisher = "wavetrace";
+                version = "1.1.2";
+                sha256 = "sha256-74MD7I2C5CI/cr+Cfuqu2Jl3UhaL3DdNiSeWfu8+ZYY=";
               }
             ];
         }

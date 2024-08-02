@@ -6,6 +6,7 @@
   lib,
   pkgs-unstable,
   pkgs,
+  git-hosts,
   ...
 }: {
   imports = [
@@ -14,6 +15,9 @@
     ./user.nix
   ];
   nixpkgs.config.allowUnfree = true;
+
+  nixpkgs.config.allowBroken = true;
+  nixpkgs.config.nvidia.acceptLicense = true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
   # Use the systemd-boot EFI boot loader.
   boot.loader = {
@@ -43,6 +47,10 @@
   # Select internationalisation properties.
   # i18n.defaultLocale = "en_US.UTF-8";
   i18n.defaultLocale = "en_US.UTF-8";
+  i18n.supportedLocales = [
+    "en_US.UTF-8/UTF-8"
+    "zh_CN.UTF-8/UTF-8"
+  ];
   # console = {
   #   font = "Lat2-Terminus16";
   #   keyMap = "us";
@@ -85,13 +93,18 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   services.getty.autologinUser = "dingduck";
+  programs.adb.enable = true;
   users.users.dingduck = {
     isNormalUser = true;
-    extraGroups = ["wheel" "networkmanager"];
-    packages = with pkgs; [firefox];
+    extraGroups = ["wheel" "networkmanager" "adbusers" "plugdev"];
+    packages = with pkgs-unstable; [firefox];
     openssh.authorizedKeys.keys = [
     ];
   };
+  nix.settings.trusted-users = [
+    "root"
+    "@wheel"
+  ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -101,6 +114,29 @@
       wget
       git
       curl
+      android-udev-rules
+      (let
+        base = pkgs.appimageTools.defaultFhsEnvArgs;
+      in
+        pkgs.buildFHSUserEnv (base
+          // {
+            name = "fhs";
+            targetPkgs = pkgs: (
+              # pkgs.buildFHSUserEnv 只提供一个最小的 FHS 环境，缺少很多常用软件所必须的基础包
+              # 所以直接使用它很可能会报错
+              #
+              # pkgs.appimageTools 提供了大多数程序常用的基础包，所以我们可以直接用它来补充
+              (base.targetPkgs pkgs)
+              ++ [
+                pkg-config
+                ncurses
+                # 如果你的 FHS 程序还有其他依赖，把它们添加在这里
+              ]
+            );
+            profile = "export FHS=1";
+            runScript = "bash";
+            extraOutputsToInstall = ["dev"];
+          }))
     ]
     ++ (with pkgs-unstable; [
       nh
@@ -152,5 +188,11 @@
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
+  networking.extraHosts = ''
+    ${builtins.readFile git-hosts}
+  '';
+
+  # 开发需要 需要jiba!!!!
+  # programs.nix-ld.enable = true;
 }

@@ -14,11 +14,11 @@ in {
     };
   };
   config = lib.mkIf cfg.enable {
+    hardware.nvidia-container-toolkit.enable = true;
     virtualisation.containers.enable = true;
     virtualisation = {
       podman = {
         enable = true;
-        enableNvidia = true;
 
         # Create a `docker` alias for podman, to use it as a drop-in replacement
         dockerCompat = true;

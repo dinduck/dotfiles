@@ -1,9 +1,8 @@
 {
-  config,
+  my-nur,
   pkgs,
   nixpkgs-unstable,
   nixvim,
-  luckyling_npkgs,
   ...
 }: let
   pkgs-unstable = import nixpkgs-unstable {
@@ -20,10 +19,11 @@ in {
   home.packages = with pkgs;
     [
       neofetch
+      devenv
       yazi
 
       # browser
-      google-chrome
+      
       vlc
       element-desktop
       slack
@@ -71,15 +71,29 @@ in {
       fira-code-nerdfont
     ]
     ++ (with pkgs-unstable; [
+      google-chrome
+      brave
+      kicad
+      notion-app-enhanced
+      gtkwave
+      android-studio
+      android-tools
+      termius
+      bottles
+      postman
+      stm32cubemx
       qq
       obsidian
       distrobox
       telegram-desktop
       jetbrains-toolbox
-      (octaveFull.withPackages (ps: with ps; [optim]))
       logisim-evolution
       verilator
-    ]);
+    ])
+    ++ [
+      my-nur.packages."${pkgs.system}".probe-rs
+      my-nur.packages."${pkgs.system}".wemeet
+    ];
   # git 相关配置
   programs.git = {
     enable = true;

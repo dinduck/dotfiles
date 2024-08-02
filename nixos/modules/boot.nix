@@ -19,9 +19,7 @@ in {
     boot.kernelPackages = pkgs.linuxPackages_zen; # zen 内核值得信赖
     environment.systemPackages = with pkgs.linuxKernel.packages.linux_zen;
       [
-        v4l2loopback
-        amdgpu-pro
-      ]
+        v4l2loopback      ]
       ++ [pkgs.starship];
     services.gvfs.enable = true; # 主要给thunar提供服务
     boot.supportedFilesystems = ["ntfs"]; # ntfs 支持
